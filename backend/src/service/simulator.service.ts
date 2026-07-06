@@ -14,6 +14,7 @@ export class SimulatorService {
 
     this.timer = setInterval(async () => {
       try {
+        console.log('live sse update');
         const update = await this.dashboardService.simulateTick();
         this.io.emit("dashboard:update", update);
       } catch (error) {
